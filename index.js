@@ -1,6 +1,6 @@
 // Recommended: All functions declared here
 function getCityName () {
-    return prompt("Enter the name of a city")
+    return prompt("Enter the name of a city")   
 }
 
 const cityName = getCityName ();
@@ -20,6 +20,17 @@ if (cityExists) {
     document.querySelector("h2").textContent = `${cityExists.name} (${cityExists.country})`;
 } else {
     document.querySelector("h2").textContent = `${cityName} finns inte i databasen.`;
+}
+
+function targetargetCity(targetCityName) {
+    const cityElements = document.querySelectorAll("#cities p"); 
+    for (let i = 0; i < cityElements.length; i++) {
+        if (cityElements[i].textContent == targetCityName) {
+            cityElements[i].classList.add("target"); 
+        } else {
+            cityElements[i].classname = ""; 
+        }
+    }
 }
 
 let closestCity = null;
@@ -62,6 +73,8 @@ function createBox(cityname) {
 for (let i = 0; i < cities.length; i++) {
     createBox(cities[i].name)
 }
+
+
 // Recommended: constants with references to existing HTML-elements
 
 // Recommended: Ask for the city name and then the rest of the code
