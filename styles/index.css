@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: skyblue;
+  background-color: rgb(98, 89, 152);
   margin: 20px;
 }
 
@@ -24,9 +24,9 @@ body {
 }
 
 #cities .target, #cities .closest, #cities .furthest { color: white }
-#cities .target { background-color: black; }
-#cities .closest { background-color: green;}
-#cities .furthest { background-color: blue; }
+#cities .target { background-color: rgb(60, 35, 35); }
+#cities .closest { background-color: rgb(14, 155, 177);}
+#cities .furthest { background-color: rgb(200, 149, 200); }
 
 h1 {
   text-align: center;
