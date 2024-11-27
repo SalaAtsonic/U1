@@ -74,7 +74,27 @@ if (cityExists) {
 
 }
 
+function createTable() {
+    const tabell = document.querySelector("#table");
+    tabell.style.width = "100%"; 
+    const rows = cities.length;
+    const columns = cities.length;
 
+    for (let a = 0; a <= columns; a++) {
+        const emptyCell = document.createElement("div");
+        emptyCell.classList.add("cell", "head_column");
+        tabell.appendChild(emptyCell);
+
+        if (a === 0) {
+            emptyCell.textContent = ""; 
+        } else {
+            emptyCell.textContent = cities[a - 1].id; 
+        }
+    }
+
+}
+
+createTable();
 // Recommended: constants with references to existing HTML-elements
 
 // Recommended: Ask for the city name and then the rest of the code
