@@ -6,6 +6,17 @@ function getCityName() {
 const cityName = getCityName();
 document.querySelector("h2").textContent = cityName;
 
+function createBox(cityname) {
+    const domDiv = document.createElement("div");
+    domDiv.classList.add("cityBox");
+    domDiv.textContent = cityname;
+    document.getElementById("cities").append(domDiv);
+}
+
+for (let i = 0; i < cities.length; i++) {
+    createBox(cities[i].name);
+}
+
 function isCityInDatabase(cityName) {
     for (let i = 0; i < cities.length; i++) {
         if (cities[i].name == cityName) {
@@ -18,9 +29,11 @@ function isCityInDatabase(cityName) {
 const cityExists = isCityInDatabase(cityName);
 
 if (cityExists) {
+    const cityBoxes = document.querySelectorAll(".cityBox");
     document.querySelector("h2").textContent = `${cityExists.name} (${cityExists.country})`;
     document.querySelector("title").textContent = `${cityExists.name}`;
-    let closestCity = null; 
+
+    let closestCity = null;
     let furthestCity = null;
     let closestDistance = distances.length;
     let furthestDistance = 0;
@@ -49,6 +62,7 @@ if (cityExists) {
 
     let closestCityObject = null;
     let furthestCityObject = null;
+
     for (let city of cities) {
         if (city.id == closestCity) {
             closestCityObject = city;
@@ -58,20 +72,8 @@ if (cityExists) {
         }
     }
 
-    document.querySelector("h3").textContent = `Närmast: ${closestCityObject.name}, Längst: ${furthestCityObject.name}`;
-} else {
-    document.querySelector("h2").textContent = `${cityName} finns inte i databasen.`;
 }
 
-function createBox(cityname) {
-    const domDiv = document.createElement("div");
-    domDiv.classList.add("cityBox");
-    domDiv.textContent = cityname;
-    document.getElementById("cities").append(domDiv);
-}
-for (let i = 0; i < cities.length; i++) {
-    createBox(cities[i].name);
-}
 
 // Recommended: constants with references to existing HTML-elements
 
