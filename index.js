@@ -88,6 +88,9 @@ for (let i = 0; i < cityDivs.length; i++) {
 }
     document.getElementById("closest").textContent = closestCityObject.name;
     document.getElementById("furthest").textContent = furthestCityObject.name;
+} else {
+    document.querySelector("h2").textContent = `${cityName} finns inte i databasen.`;
+    document.querySelector("title").textContent = "Not Found";
 }
 
 function createTable() {
