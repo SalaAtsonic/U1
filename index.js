@@ -72,6 +72,20 @@ if (cityExists) {
         }
     }
 
+
+const cityDivs = document.querySelectorAll(".cityBox");
+
+for (let i = 0; i < cityDivs.length; i++) {
+    const cityDiv = cityDivs[i];
+    if (cityDiv.textContent === closestCityObject.name) {
+        cityDiv.classList.add("closest");
+        cityDiv.innerHTML += ` ligger ${closestDistance / 10} mil bort `;
+    }
+    if (cityDiv.textContent === furthestCityObject.name) {
+        cityDiv.classList.add("furthest");
+        cityDiv.innerHTML += ` ligger ${furthestDistance / 10} mil bort `;
+    }
+}
 }
 
 function createTable() {
