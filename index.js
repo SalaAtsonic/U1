@@ -86,6 +86,8 @@ for (let i = 0; i < cityDivs.length; i++) {
         cityDiv.innerHTML += ` ligger ${furthestDistance / 10} mil bort `;
     }
 }
+    document.getElementById("closest").textContent = closestCityObject.name;
+    document.getElementById("furthest").textContent = furthestCityObject.name;
 }
 
 function createTable() {
