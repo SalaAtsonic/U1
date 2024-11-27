@@ -106,6 +106,51 @@ function createTable() {
         }
     }
 
+    for (let i = 0; i < rows; i++) {
+        let namesRow = document.createElement("div");
+        namesRow.textContent = cities[i].id + " - " + cities[i].name;
+        namesRow.classList.add("head_row", "cell");
+        tabell.appendChild(namesRow);
+
+        if ((i + 2) % 2 === 0) { 
+            namesRow.classList.add("even_row"); 
+        }
+
+        for (let j = 0; j < columns; j++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+
+            if ((j + 2) % 2 === 0) {
+                cell.classList.add("even_col");
+            }
+
+            let distanceValue = null;
+            for (let distance of distances) {
+                if (distance.city1 === cities[i].id) {
+                    if (distance.city2 === cities[j].id) {
+                        distanceValue = distance.distance;
+                        break;
+                    }
+                }
+                if (distance.city2 === cities[i].id) {
+                    if (distance.city1 === cities[j].id) {
+                        distanceValue = distance.distance;
+                    }
+                }
+            }
+
+            if (distanceValue == null) {
+            } else {
+                cell.textContent = distanceValue / 10;
+            }
+            
+            if ((i + 2) % 2 === 0) { 
+                cell.classList.add("even_row");
+            }
+
+            tabell.appendChild(cell);
+        }
+    }
 }
 
 createTable();
